@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html>
+    <header id = "mark">Made by ash </header>
+    <button onclick = start();>Start speaking</button>
+    <img src = "https://upload.wikimedia.org/wikipedia/en/3/3b/SpongeBob_SquarePants_character.svg" alt = "spongebob" height = "25%" id = "bob">
+    <img src = "https://upload.wikimedia.org/wikipedia/en/3/33/Patrick_Star.svg" alt = "patrick" height = "25%" id = "patrick">
+    <input type="text" id="my-textbox" name="my-textbox">
+    <button onclick = startfire();>say recomendation</button>
+    <p1>made by ash(again)</p1>
+</html>
+<script>
+    // licensed code, you ae not allowed to edit and tamper with this code.
+    var a = document.getElementById("bob");
+    var b = document.getElementById("patrick");
+    a.style.position = "absolute";
+    a.style.left = "5%";
+    a.style.top = "25%";
+    b.style.position = "absolute";
+    b.style.top = "25%";
+    b.style.left = "50%";
+    function talkbob() {
+        a.src = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6f881320-4ecb-4e00-8704-61d6854e956e/dfaqzys-80f1da03-7472-43e9-9ec2-dfc998fd730a.png/v1/fill/w_1280,h_1171/spongebob_singing_by_piratequeen1333_dfaqzys-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE3MSIsInBhdGgiOiJcL2ZcLzZmODgxMzIwLTRlY2ItNGUwMC04NzA0LTYxZDY4NTRlOTU2ZVwvZGZhcXp5cy04MGYxZGEwMy03NDcyLTQzZTktOWVjMi1kZmM5OThmZDczMGEucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.j4qAWWqW7wJzbd2mueUtvYQDSrftuheJUIMg8M1sfBE";
+    }
+    // made by ash
+    function regularbob() {
+        a.src = "https://upload.wikimedia.org/wikipedia/en/3/3b/SpongeBob_SquarePants_character.svg";
+    }
+    var pretext2 = document.createElement("header");
+     
+    function speakbob(text) {
+    var pretext = document.createElement("header");
+    pretext.style.color = "yellow";
+    pretext.style.position = "absolute";
+    pretext.style.left = a.offsetLeft + "px";
+    pretext.style.top = a.offsetTop + a.offsetHeight * 1.2 + "px";
+    pretext.innerHTML = text;
+    document.body.appendChild(pretext);
+    var utterance = new SpeechSynthesisUtterance(text);
+    utterance.voice = speechSynthesis.getVoices().find(function(voice) {
+        return voice.name === 'Tom Kenny';
+    });
+    window.speechSynthesis.speak(utterance);
+    talkbob();
+    utterance.onend = function() {
+        pretext.innerHTML = "";
+        pretext.parentNode.removeChild(pretext);
+        regularbob();
+    };
+}
+
+
+function speakpatrick(text) {
+    var pretext = document.createElement("header");
+    pretext.style.color = "red"
+    pretext.style.position = "absolute";
+    pretext.style.left = "300";
+    pretext.style.top = "10%";
+    pretext.innerHTML = text;
+    document.body.appendChild(pretext)
+    var utterance = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterance)
+    utterance.onend = function() {
+        pretext.innerHTML = "";
+        pretext.parentNode.removeChild(pretext);
+    }
+}
+    var nouns = [
+        "home",
+        "work",
+        "school",
+        "patrick",
+        "spongebob",
+        "cat",
+        "dog",
+        "tv",
+        "couch",
+        "table",
+        "sink"
+    ]
+    var adjectives  = [
+        "good",
+        "new",
+        "first",
+        "last",
+        "long",
+        "great",
+        "little",
+        "own",
+        "small",
+        "large",
+        "next",
+        "early",
+        "young",
+        "sus",
+        "pretty"
+    ]
+    var verbs = [
+        "be",
+        "have",
+        "do",
+        "say",
+        "get",
+        "make",
+        "go",
+        "know",
+        "take",
+        "see",
+        "come",
+        "think"
+    ]
+    var verbsing = [
+        "being",
+        "having",
+        "doing",
+        "saying",
+        "geting",
+        "making",
+        "going",
+        "knowing",
+        "taking",
+        "seeing",
+        "coming",
+        "thinking"
+    ]
+    let extra = [
+        "shart mario",
+        "poop",
+        "fell into the sewers",
+        "yahgah",
+        "roblox",
+        "bobux",
+        "forknife",
+        "minekaft"
+    ]
+    const n = 1000;
+
+// looping from i = 1 to 5
+
+    var adjlength = adjectives.length-1;
+    var verblength = verbs.length-1;
+    var nounlength = nouns.length-1;
+    var verbsilength = verbsing.length-1;
+    var rec = null;
+    const m = 2;
+    function startfire() {
+        for (let i = 1; i <= m; i++) {
+        setTimeout(function() {
+        var textbox = document.getElementById("my-textbox");
+        if (textbox.value == null || textbox.value == "") {
+            console.log("nothing to write, sorry dude");
+        } else {
+            let randomVerbsing = verbsing[Math.floor(Math.random() * verbsing.length)];
+            let randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
+            let randomVerb = verbs[Math.floor(Math.random() * adjectives.length)];
+            let randomExtra = extra[Math.floor(Math.random() * extra.length)];
+            let randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+            speakbob(textbox.value+" "+randomNoun)
+        var randompatrick = Math.floor(Math.random() * 2) + 1;
+            if (randompatrick == 1) {
+            let randomVerbsing = verbsing[Math.floor(Math.random() * verbsing.length)];
+            let randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
+            let randomVerb = verbs[Math.floor(Math.random() * adjectives.length)];
+            let randomExtra = extra[Math.floor(Math.random() * extra.length)];
+            speakpatrick("ok random "+randomExtra+" "+textbox.value);
+        }
+        if (randompatrick == 2) {
+            let randomVerbsing = verbsing[Math.floor(Math.random() * verbsing.length)];
+            let randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
+            let randomVerb = verbs[Math.floor(Math.random() * adjectives.length)];
+            let randomExtra = extra[Math.floor(Math.random() * extra.length)];
+            speakpatrick(textbox.value+" also "+randomVerbsing+" "+randomNoun)
+        }
+
+        }
+    }, i * 7000);
+    }
+}
+    // Your code here
+    function start() {
+        for (let i = 1; i <= n; i++) {
+        setTimeout(function() {
+        var randomtext = Math.floor(Math.random() * 4) + 1;
+        if (randomtext == 1) {
+            let randomVerbsing = verbsing[Math.floor(Math.random() * verbsing.length)];
+            let randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
+            let randomVerb = verbs[Math.floor(Math.random() * adjectives.length)];
+            let randomExtra = extra[Math.floor(Math.random() * extra.length)];
+            speakbob("I just finished "+randomVerbsing+" and also "+ randomVerb+" "+randomAdj+" "+randomExtra)
+        }
+        if (randomtext == 2) {
+            let randomVerbsing = verbsing[Math.floor(Math.random() * verbsing.length)];
+            let randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
+            let randomVerb = verbs[Math.floor(Math.random() * adjectives.length)];
+            let randomExtra = extra[Math.floor(Math.random() * extra.length)];
+            let randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+            speakbob("My favorite thing to do in this world is "+ randomVerbsing+ " my "+randomNoun+ " since it is "+randomAdj)
+        }
+        if (randomtext == 3) {
+            let randomVerbsing = verbsing[Math.floor(Math.random() * verbsing.length)];
+            let randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
+            let randomVerb = verbs[Math.floor(Math.random() * adjectives.length)];
+            let randomExtra = extra[Math.floor(Math.random() * extra.length)];
+            let randomNoun = nouns[Math.floor(Math.random() * nouns.length)]; 
+            speakbob("In my opinion I think "+randomVerbsing+" is the best thing for any "+randomNoun)
+        }
+        if (randomtext == 4) {
+            let randomVerbsing = verbsing[Math.floor(Math.random() * verbsing.length)];
+            let randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
+            let randomVerb = verbs[Math.floor(Math.random() * adjectives.length)];
+            let randomExtra = extra[Math.floor(Math.random() * extra.length)];
+            let randomNoun = nouns[Math.floor(Math.random() * nouns.length)]; 
+            speakbob("lets "+randomVerb+" to see "+randomAdj+ " since its very "+randomAdj)
+        }
+        var randompatrick = Math.floor(Math.random() * 4) + 1;
+        if (randompatrick == 1) {
+            let randomVerbsing = verbsing[Math.floor(Math.random() * verbsing.length)];
+            let randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
+            let randomVerb = verbs[Math.floor(Math.random() * adjectives.length)];
+            let randomExtra = extra[Math.floor(Math.random() * extra.length)];
+            speakpatrick("that is very "+randomAdj+" spongebob. "+randomExtra);
+        }
+        if (randompatrick == 2) {
+            let randomVerbsing = verbsing[Math.floor(Math.random() * verbsing.length)];
+            let randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
+            let randomVerb = verbs[Math.floor(Math.random() * adjectives.length)];
+            let randomExtra = extra[Math.floor(Math.random() * extra.length)];
+            speakpatrick("Spongebob I think you are very "+randomAdj+" because you keep on "+randomVerbsing)
+        }
+        if (randompatrick == 3) {
+            let randomVerbsing = verbsing[Math.floor(Math.random() * verbsing.length)];
+            let randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
+            let randomVerb = verbs[Math.floor(Math.random() * adjectives.length)];
+            let randomExtra = extra[Math.floor(Math.random() * extra.length)];
+            let randomNoun = nouns[Math.floor(Math.random() * nouns.length)]; 
+            speakpatrick("Wow spongebob that is very "+randomAdj+" of you. we should "+randomVerb+" to "+randomNoun)
+        }
+    }, i * 7500);
+}
+
+    }
+
+
+
+     
+
+    
+</script>
+<style>
+    header {
+        font-size: larger;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    }
+    body {
+        background-image: url("https://e0.pxfuel.com/wallpapers/860/583/desktop-wallpaper-bikini-bottom-neville-longbottom-cracked-bottom-left-corner-and-snap-bottom-bodysuit-jellyfish-fields.jpg");
+        background-repeat: repeat-x;
+        background-color: green;
+    }
+</style>
